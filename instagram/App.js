@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Header from './components/header.js';
 import { View } from 'react-native';
-import Generated from './pagedraw/component.js';
 
 class App extends Component {
   // componentDidMount() {
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return(
       <View>
-        <Generated />
+        <Header/>
       </View>
     )
   }
