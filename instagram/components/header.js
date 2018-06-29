@@ -3,18 +3,15 @@ import { View, Image } from 'react-native';
 
 const Header = () => (
     <View>
-    {/* <Text style={styles.textStyle}>Instagram</Text> */}
-        <Image source={{ uri: './assets/images/instaclone.png' }} />
+        <Image source={require('../android/app/assets/images/instaclone.png')} style={styles.imageStyle} />
     </View>
 )
 
 const styles = {
-  viewStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 10,
-
-  },
+  imageStyle: {
+    height: 822,
+    width: 411
+  }
 }
 
 export default Header;
