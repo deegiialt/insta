@@ -1,26 +1,54 @@
-import React from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react';
+import { View, Image, TouchableOpacity, CameraRoll } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-const Photo = () => (
-    <View>
-      <Image source={require('../android/app/assets/images/headerphoto.png')} style={styles.headerView} />
-      <View style={styles.photoView}>
-      </View>
-      <View style={styles.buttonView}>
-        <TouchableOpacity><Image source={require('../android/app/assets/images/picbutton.png')} style={styles.button} /></TouchableOpacity>
-      </View>
+class Photo extends Component {
+  state = {
+    picArray: []
+  }
+  // handleTakingPic = () => {
+
+  // }
+
+  handleGallery = () => {
+    CameraRoll.getPhotos({ first: 30, assetType: 'Photos' })
+      .then(res => {
+        let photoArray = res.edges;
+        this.setState({ photoArray })
+        Actions.gallery();
+      })
+      .catch(err => console.log(err));
+  };
+
+  render() {
+    return(
+      <View>
+        <TouchableOpacity onPress={() => Actions.home()}><Image source={require('../android/app/assets/images/headerphoto.png')} style={styles.headerView} /></TouchableOpacity>
+        <View style={styles.photoView}>
+        </View>
+        <View style={styles.buttonView}>
+          <TouchableOpacity 
+          // onPress={ this.handleTakingPic }
+          ><Image source={require('../android/app/assets/images/picbutton.png')} style={styles.button} /></TouchableOpacity>
+        </View>
         <View style={styles.menuView}>
-          <TouchableOpacity><Image source={require('../android/app/assets/images/GALLERY.png')} style={styles.gallery} /></TouchableOpacity>
+          <TouchableOpacity onPress={ this.handleGallery }><Image source={require('../android/app/assets/images/GALLERY.png')} style={styles.gallery} /></TouchableOpacity>
           <TouchableOpacity><Image source={require('../android/app/assets/images/Photo.png')} style={styles.photo} /></TouchableOpacity>
           <TouchableOpacity><Image source={require('../android/app/assets/images/VIDEO.png')} style={styles.video} /></TouchableOpacity>
         </View>
-    </View>
-);
+      </View>
+    )
+  }
+};
 
 const styles = {
   headerView: {
     width: 411,
     height: 44
+  },
+  x: {
+    width: 13,
+    height: 13
   },
   photoView: {
     width: 411,
