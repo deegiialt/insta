@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Home from './components/home.js';
 import Photo from './components/photo.js';
-import { View } from 'react-native';
 import { Scene, Router, Stack } from 'react-native-router-flux';
 
 class App extends Component {
