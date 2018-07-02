@@ -3,23 +3,6 @@ import { View, Image, TouchableOpacity, CameraRoll } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 class Photo extends Component {
-  state = {
-    picArray: []
-  }
-  // handleTakingPic = () => {
-
-  // }
-
-  handleGallery = () => {
-    CameraRoll.getPhotos({ first: 30, assetType: 'Photos' })
-      .then(res => {
-        let photoArray = res.edges;
-        this.setState({ photoArray })
-        Actions.gallery();
-      })
-      .catch(err => console.log(err));
-  };
-
   render() {
     return(
       <View>
@@ -32,7 +15,7 @@ class Photo extends Component {
           ><Image source={require('../android/app/assets/images/picbutton.png')} style={styles.button} /></TouchableOpacity>
         </View>
         <View style={styles.menuView}>
-          <TouchableOpacity onPress={ this.handleGallery }><Image source={require('../android/app/assets/images/GALLERY.png')} style={styles.gallery} /></TouchableOpacity>
+          <TouchableOpacity onPress={ () => Actions.gallery() }><Image source={require('../android/app/assets/images/GALLERY.png')} style={styles.gallery} /></TouchableOpacity>
           <TouchableOpacity><Image source={require('../android/app/assets/images/Photo.png')} style={styles.photo} /></TouchableOpacity>
           <TouchableOpacity><Image source={require('../android/app/assets/images/VIDEO.png')} style={styles.video} /></TouchableOpacity>
         </View>
