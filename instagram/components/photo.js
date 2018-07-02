@@ -1,17 +1,47 @@
 import React, { Component } from 'react';
-import { View, Image, TouchableOpacity, CameraRoll } from 'react-native';
+import { View, Image, TouchableOpacity, Camera } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+
 class Photo extends Component {
+  // takePicture = async function () {
+  //   if (this.camera) {
+  //     const options = { quality: 0.5, base64: true };
+  //     const data = await this.camera.takePictureAsync(options)
+  //     console.log(data.uri);
+  //   }
+  // }
+  takePicture() {
+    const options = {}
+
+    this.camera.capture({ metadata: options }).then((data) => {
+      console.log(data)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+
   render() {
     return(
       <View>
         <TouchableOpacity onPress={() => Actions.home()}><Image source={require('../android/app/assets/images/headerphoto.png')} style={styles.headerView} /></TouchableOpacity>
-        <View style={styles.photoView}>
-        </View>
+        {/* <View > */}
+        <Camera
+          ref={(cam) => {
+            this.camera = cam
+          }}
+          style={styles.view}
+          aspect={Camera.constants.Aspect.fill}>
+          <Text
+            style={styles.capture}
+            onPress={this.takePicture.bind(this)}>
+            [CAPTURE_IMAGE]
+            </Text>
+        </Camera>
+        {/* </View> */}
         <View style={styles.buttonView}>
           <TouchableOpacity 
-          // onPress={ this.handleTakingPic }
+          onPress={ this.takePicture }
           ><Image source={require('../android/app/assets/images/picbutton.png')} style={styles.button} /></TouchableOpacity>
         </View>
         <View style={styles.menuView}>
@@ -35,8 +65,7 @@ const styles = {
   },
   photoView: {
     width: 411,
-    height: 387,
-    backgroundColor: '#c4c4c4'
+    height: 387
   },
   button: {
     width: 74,
