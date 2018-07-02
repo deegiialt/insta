@@ -41,13 +41,6 @@ class Gallery extends Component {
 			<View style={styles.container}>
 				<TouchableOpacity onPress={() => Actions.photo()}><Image source={require('../android/app/assets/images/galleryheader.png')} style={styles.galleryHeader} /></TouchableOpacity>
 				<ScrollView contentContainerStyle={styles.scrollContainer}>
-				{/* Map function not working for some reason, using sample images for development */}
-					{/* <TouchableOpacity onPress={() => this.sharePhoto(0)}>
-						<Image source={{ uri: "content://media/external/images/media/64" }} style={styles.images} />
-					</TouchableOpacity>
-					<Image source={{ uri: "content://media/external/images/media/82" }} style={styles.images} /> */}
-
-					{/* Map and render each photo */}
 					{this.state.doneLoading ? this.state.picArray.map((pic, i) => (
 						<TouchableOpacity key={pic.node.image.uri} onPress={() => this.sharePhoto(i) }>
 							<Image key={pic.node.image.uri} source={{uri: pic.node.image.uri}} style={styles.images} />		

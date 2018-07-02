@@ -4,13 +4,6 @@ import { Actions } from 'react-native-router-flux';
 
 
 class Photo extends Component {
-  // takePicture = async function () {
-  //   if (this.camera) {
-  //     const options = { quality: 0.5, base64: true };
-  //     const data = await this.camera.takePictureAsync(options)
-  //     console.log(data.uri);
-  //   }
-  // }
   takePicture() {
     const options = {}
 
@@ -25,24 +18,14 @@ class Photo extends Component {
     return(
       <View>
         <TouchableOpacity onPress={() => Actions.home()}><Image source={require('../android/app/assets/images/headerphoto.png')} style={styles.headerView} /></TouchableOpacity>
-        {/* <View > */}
-        <Camera
-          ref={(cam) => {
-            this.camera = cam
-          }}
-          style={styles.view}
+        <View style={styles.photoView}></View>
+        {/* <Camera
+          ref={(cam) => { this.camera = cam }}
+          style={styles.photoView}
           aspect={Camera.constants.Aspect.fill}>
-          <Text
-            style={styles.capture}
-            onPress={this.takePicture.bind(this)}>
-            [CAPTURE_IMAGE]
-            </Text>
-        </Camera>
-        {/* </View> */}
+        </Camera> */}
         <View style={styles.buttonView}>
-          <TouchableOpacity 
-          onPress={ this.takePicture }
-          ><Image source={require('../android/app/assets/images/picbutton.png')} style={styles.button} /></TouchableOpacity>
+          <TouchableOpacity onPress={ this.takePicture }><Image source={require('../android/app/assets/images/picbutton.png')} style={styles.button} /></TouchableOpacity>
         </View>
         <View style={styles.menuView}>
           <TouchableOpacity onPress={ () => Actions.gallery() }><Image source={require('../android/app/assets/images/GALLERY.png')} style={styles.gallery} /></TouchableOpacity>
@@ -57,7 +40,7 @@ class Photo extends Component {
 const styles = {
   headerView: {
     width: 411,
-    height: 44
+    height: 44,
   },
   x: {
     width: 13,
@@ -65,7 +48,8 @@ const styles = {
   },
   photoView: {
     width: 411,
-    height: 387
+    height: 387,
+    backgroundColor: '#c4c4c4'
   },
   button: {
     width: 74,
