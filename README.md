@@ -3,6 +3,7 @@
 
 ## Demo
 https://drive.google.com/file/d/1Abq7OLi4V4zYok1VEodfPEZ-JTrrcBfw/view
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/33074066/42158033-89aea28e-7dac-11e8-8fdd-be0612c7bdc6.gif)
 
 ## Tech used
 Figma, Avocode, React Native, Android Studio
