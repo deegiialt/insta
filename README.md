@@ -1,5 +1,5 @@
 # Instagram Clone
-> App where users have the ability to take pictures and share pictures from their camera role.
+> App where users have the ability to take pictures and share pictures from their camera roll.
 
 ## Demo
 https://drive.google.com/file/d/1Abq7OLi4V4zYok1VEodfPEZ-JTrrcBfw/view
