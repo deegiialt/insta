@@ -5,8 +5,8 @@ import { Actions } from 'react-native-router-flux';
 class Gallery extends Component {
   state = {
     picArray: [],
-    doneLoading: false,
-    index: null
+    doneLoading: false
+
   }
 
   componentDidMount() {
