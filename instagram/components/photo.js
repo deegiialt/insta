@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, TouchableOpacity, Camera } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
+// example
 
 class Photo extends Component {
   takePicture() {
