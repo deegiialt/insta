@@ -5,8 +5,8 @@ import { Actions } from 'react-native-router-flux';
 class Gallery extends Component {
   state = {
     picArray: [],
-    doneLoading: false,
-    index: null
+    doneLoading: false
+
   }
 
   componentDidMount() {
@@ -26,7 +26,7 @@ class Gallery extends Component {
   sharePhoto = (index) => {
     const image = this.state.picArray[index].node.image.uri
     let shareOptions = {
-      title: "React Native Share Example",
+      title: "Share Photo",
       message: "Check out this photo!",
       url: `data:image/jpg;base64,${image}`,
       subject: "Check out this photo!"
